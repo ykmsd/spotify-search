@@ -18,10 +18,13 @@
     "e2e-tests-watch": "wdio wdio.conf.js --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom  --watch",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
     "chai": "^4.1.2",
     "enzyme": "^3.2.0",
     "eslint": "^4.13.1",
