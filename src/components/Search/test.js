@@ -1,14 +1,15 @@
-/* global expect, it, describe, beforeEach */
+/* global expect, it, describe, beforeEach, jest */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Search from './Search';
 
 describe('Search component', () => {
   let component;
+  const searchMock = jest.fn();
 
   beforeEach(() => {
-    component = shallow(<Search />);
+    component = shallow(<Search searchArtist={searchMock} />);
   });
 
   it('Should render successfully', () => {
@@ -19,7 +20,17 @@ describe('Search component', () => {
     expect(component.find('.search-input').length).toEqual(1);
   });
 
-  it('Should have a search button', () => {
-    expect(component.find('.search-button').length).toEqual(1);
+  describe('Search button', () => {
+    it('Should have a search button', () => {
+      expect(component.find('.search-button').length).toEqual(1);
+    });
+
+    it('Should call the handleSearchClick function when clicked', () => {
+      component = mount(<Search searchArtist={searchMock} />);
+
+      expect(searchMock.mock.calls.length).toEqual(0);
+      component.find('.search-button').simulate('submit');
+      expect(searchMock.mock.calls.length).toEqual(1);
+    });
   });
 });
