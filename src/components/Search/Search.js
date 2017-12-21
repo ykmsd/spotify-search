@@ -1,6 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Form, Input, Button } from 'antd';
+const FormItem = Form.Item;
 
-class Search extends Component {
+type Props = {
+  searchAlbum: Function,
+}
+
+class Search extends React.Component<Props> {
   constructor() {
     super();
     this.state = {
@@ -22,16 +28,27 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSearchClick}>
-          <input
-            type="text"
-            className="search-input"
-            value={this.state.searchTerm}
-            onChange={this.handleSearchChange}
-            placeholder="Who is your favourite artist?"
-          />
-          <button className="search-button">Search</button>
-        </form>
+        <Form onSubmit={this.handleSearchClick} layout="inline" style={{ marginBottom: '20px'}}>
+          <FormItem>
+            <Input
+              type="text"
+              className="search-input"
+              value={this.state.searchTerm}
+              onChange={this.handleSearchChange}
+              placeholder="Search by Artist"
+              style={{ width: '200px' }}
+            />
+          </FormItem>
+          <FormItem>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="search-button"
+            >
+              Search
+            </Button>
+          </FormItem>
+        </Form>
       </div>
     );
   }

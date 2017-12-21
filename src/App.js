@@ -9,6 +9,7 @@ import {
   setToken,
 } from './Actions/actionCreators';
 import { config } from './config';
+import './App.css';
 
 const clientId = config.CLIENT_ID;
 
@@ -32,7 +33,7 @@ class App extends React.Component<Props> {
   render() {
     return (
       <div className="App">
-        <h1>Spotify Seach</h1>
+        <h1>Spotify Seach <span role="img" aria-label="magnifying glass emoji">🔎</span></h1>
         <Main {...this.props} />
       </div>
     );

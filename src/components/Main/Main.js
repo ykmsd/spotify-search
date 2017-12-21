@@ -16,7 +16,9 @@ const Main = (props: Props) => {
   return (
     <div>
       <Search {...props} />
-      <List items={props.items && props.items} />
+      {
+        props.items && <List items={props.items} />
+      }
     </div>
   );
 };
