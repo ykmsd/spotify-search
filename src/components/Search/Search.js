@@ -14,7 +14,7 @@ class Search extends Component {
   }
   handleSearchClick = (e) => {
     e.preventDefault();
-    this.props.searchArtist(this.state.searchTerm, this.props.token);
+    this.props.searchAlbum(this.state.searchTerm, this.props.token);
     this.setState({
       searchTerm: '',
     });
@@ -28,6 +28,7 @@ class Search extends Component {
             className="search-input"
             value={this.state.searchTerm}
             onChange={this.handleSearchChange}
+            placeholder="Who is your favourite artist?"
           />
           <button className="search-button">Search</button>
         </form>

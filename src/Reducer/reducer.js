@@ -1,13 +1,19 @@
-export const initialState = {};
+import albumData from '../data';
 
-const reducer = (state = initialState, action) => {
+// export const initialState = {};
+
+const reducer = (state = albumData, action) => {
   switch (action.type) {
     case 'SET_TOKEN':
       return {
         ...state,
         token: action.token,
       };
-
+    case 'SEARCH_FETCH_DATA_SUCCESS':
+      return {
+        ...state,
+        items: action.items,
+      };
     default:
       return state;
   }

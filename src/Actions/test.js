@@ -2,7 +2,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import { setToken, searchArtist } from './actionCreators';
+import { setToken, searchAlbum } from './actionCreators';
 
 describe('Actions', () => {
   const middlewares = [thunk];
@@ -23,14 +23,6 @@ describe('Actions', () => {
   });
 
   describe('Search', () => {
-    afterEach(() => {
-      fetchMock.reset();
-      fetchMock.restore();
-    });
 
-    it('Should create SEARCH_FETCH_DATA_SUCCESS when fethcing has been done', () => {
-      fetchMock
-        .getOnce()
-    });     
   });
 });

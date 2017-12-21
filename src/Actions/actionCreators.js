@@ -5,21 +5,21 @@ export function setToken(token) {
   };
 }
 
-export function searchArtistHasErroed(bool) {
+export function searchAlbumHasErroed(bool) {
   return {
     type: 'SEARCH_HAS_ERRORED',
     hasErrored: bool,
   };
 }
 
-export function searchArtistIsLoading(bool) {
+export function searchAlbumIsLoading(bool) {
   return {
     type: 'SEARCH_IS_LOADING',
     isLoading: bool,
   };
 }
 
-export function searchArtistFetchDataSuccess(items) {
+export function searchAlbumFetchDataSuccess(items) {
   console.log(items);
   return {
     type: 'SEARCH_FETCH_DATA_SUCCESS',
@@ -27,9 +27,9 @@ export function searchArtistFetchDataSuccess(items) {
   };
 }
 
-export function searchArtist(searchTerm, token) {
+export function searchAlbum(searchTerm, token) {
   return (dispatch) => {
-    const FETCH_URL = `https://api.spotify.com/v1/search?q=${searchTerm}&type=artist`;
+    const FETCH_URL = `https://api.spotify.com/v1/search?q=artist:${searchTerm}&type=album`;
 
     const myOptions = {
       method: 'GET',
@@ -38,19 +38,18 @@ export function searchArtist(searchTerm, token) {
       }),
     };
     
-    dispatch(searchArtistIsLoading(true));
+    dispatch(searchAlbumIsLoading(true));
 
     fetch(FETCH_URL, myOptions)
       .then(res => res.json())
       .then((res) => {
-        console.log(res.items);
-        res.items = res.artists.items.map((item) => {
+        res.items = res.albums.items.map((item) => {
           return {
-            artist: item,
+            albums: item,
           };
         });
         
-        dispatch(searchArtistFetchDataSuccess(res.items));
+        dispatch(searchAlbumFetchDataSuccess(res.items));
       });
   };
 }
