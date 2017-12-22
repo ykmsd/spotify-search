@@ -1,8 +1,8 @@
-// import albumData from '../data';
+import albumData from '../data';
 
 export const initialState = {};
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = albumData, action) => {
   switch (action.type) {
     case 'SET_TOKEN':
       return {

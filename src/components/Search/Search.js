@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Form, Input, Button } from 'antd';
+
 const FormItem = Form.Item;
 
 type Props = {
   searchAlbum: Function,
-}
+  token: string,
+};
 
 class Search extends React.Component<Props> {
   constructor() {
@@ -35,7 +37,7 @@ class Search extends React.Component<Props> {
               className="search-input"
               value={this.state.searchTerm}
               onChange={this.handleSearchChange}
-              placeholder="Search by Artist"
+              placeholder="Search by Artist name"
               style={{ width: '200px' }}
             />
           </FormItem>
