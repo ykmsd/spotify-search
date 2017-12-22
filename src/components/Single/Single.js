@@ -3,24 +3,24 @@ import { Row, Col, Button, Icon } from 'antd';
 
 type Props = {
   routeProps: Object,
-  items: Array<Object>,
+  albums: Array<Object>,
 }
 
-const Single = ({ routeProps, items } : Props) => {
+const Single = ({ routeProps, albums } : Props) => {
   const { albumId } = routeProps.match.params;
-  const i = items.findIndex(album => album.albums.id === albumId);
-  const album = items[i];
-  const { albums } = album;
+  const i = albums.findIndex(album => album.albums.id === albumId);
+  const album = albums[i];
+  const { albums: albumData } = album;
   return (
     <div>
       <Row gutter={16} type="flex" justify="center" style={{ marginBottom: '40px' }}>
         <Col span={6}>
-          <iframe src={`https://open.spotify.com/embed?uri=${albums.uri}&theme=white`} width="300" height="380" frameBorder="0" allowtransparency="true" title="Spotify Player" />
+          <iframe src={`https://open.spotify.com/embed?uri=${albumData.uri}&theme=white`} width="300" height="380" frameBorder="0" allowtransparency="true" title="Spotify Player" />
         </Col>
         <Col span={6}>
-          <h2>{albums.name}</h2>
-          <h3>{albums.artists[0].name}</h3>
-          <img src={albums.images[1].url} alt={albums.name} />             
+          <h2>{albumData.name}</h2>
+          <h3>{albumData.artists[0].name}</h3>
+          <img src={albumData.images[1].url} alt={albumData.name} />             
         </Col>
       </Row>
       <Button type="primary" onClick={routeProps.history.goBack}>

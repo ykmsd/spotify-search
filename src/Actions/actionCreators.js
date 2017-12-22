@@ -5,7 +5,7 @@ export function setToken(token) {
   };
 }
 
-export function searchAlbumHasErroed(bool) {
+export function searchAlbumHasErrored(bool) {
   return {
     type: 'SEARCH_HAS_ERRORED',
     hasErrored: bool,
@@ -40,6 +40,10 @@ export function searchAlbum(searchTerm, token) {
     dispatch(searchAlbumIsLoading(true));
 
     fetch(FETCH_URL, myOptions)
+      .then((res) => {
+        dispatch(searchAlbumIsLoading(false));
+        return res;
+      })
       .then(res => res.json())
       .then((res) => {
         res.items = res.albums.items.map((item) => {
@@ -47,9 +51,9 @@ export function searchAlbum(searchTerm, token) {
             albums: item,
           };
         });
-        
-        dispatch(searchAlbumFetchDataSuccess(res.items));
+        return res.items;
       })
-      .catch(() => dispatch(searchAlbumHasErroed(true)));
+      .then(items => dispatch(searchAlbumFetchDataSuccess(items)))
+      .catch(() => dispatch(searchAlbumHasErrored(true)));
   };
 }

@@ -9,16 +9,17 @@ type Props = {
   searchAlbum: Function,
   setToken: Function,
   token: string,
-  items: Array<Object>,
+  albums: Array<Object>,
+  hasErrored: boolean,
+  isLoading: boolean,
 }
 
 const Main = (props: Props) => {
   return (
     <div>
       <Switch>
-        <Route path="/" exact />
         <Route path="/callback" render={routeProps => (<List routeProps={routeProps} {...props} />)} exact />
-        <Route path="/:albumId" render={routeProps => (<Single routeProps={routeProps} items={props.items} />)} />
+        <Route path="/:albumId" render={routeProps => (<Single routeProps={routeProps} albums={props.albums} />)} />
       </Switch>
     </div>
   );

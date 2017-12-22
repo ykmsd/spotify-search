@@ -28,6 +28,7 @@ class Search extends React.Component<Props> {
     });
   }
   render() {
+
     return (
       <div>
         <Form onSubmit={this.handleSearchClick} layout="inline" style={{ marginBottom: '20px'}}>

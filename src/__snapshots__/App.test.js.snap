@@ -4,7 +4,13 @@ exports[`renders correctly 1`] = `
 <div
   className="App"
 >
-  <div>
+  <div
+    style={
+      Object {
+        "marginBottom": "20px",
+      }
+    }
+  >
     <h1>
       Spotify Seach 
       <span
@@ -14,67 +20,6 @@ exports[`renders correctly 1`] = `
         🔎
       </span>
     </h1>
-    <div>
-      <form
-        className="ant-form ant-form-inline"
-        onSubmit={[Function]}
-        style={
-          Object {
-            "marginBottom": "20px",
-          }
-        }
-      >
-        <div
-          className="ant-row ant-form-item"
-          style={undefined}
-        >
-          <div
-            className="ant-form-item-control-wrapper"
-          >
-            <div
-              className="ant-form-item-control "
-            >
-              <input
-                className="ant-input search-input"
-                disabled={false}
-                onChange={[Function]}
-                onKeyDown={[Function]}
-                placeholder="Search by Artist name"
-                style={
-                  Object {
-                    "width": "200px",
-                  }
-                }
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="ant-row ant-form-item"
-          style={undefined}
-        >
-          <div
-            className="ant-form-item-control-wrapper"
-          >
-            <div
-              className="ant-form-item-control "
-            >
-              <button
-                className="ant-btn search-button ant-btn-primary"
-                onClick={[Function]}
-                type="submit"
-              >
-                <span>
-                  Search
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
   </div>
   <div />
 </div>

@@ -33,7 +33,6 @@ export class App extends React.Component<Props> {
     }
   }
   render() {
-    console.log(this.props);
     return (
       <div className="App">
         <Header {...this.props} />
@@ -43,7 +42,14 @@ export class App extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = state => state.reducer;
+const mapStateToProps = (state) => {
+  return {
+    albums: state.albums,
+    hasErrored: state.searchAlbumHasErrored,
+    isLoading: state.searchAlbumIsLoading,
+    token: state.setToken,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   searchAlbum: (searchTerm, token) => {

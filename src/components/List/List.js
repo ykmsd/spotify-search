@@ -2,29 +2,41 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import { Link } from 'react-router-dom';
+import Search from '../Search/Search';
 
 const { Meta } = Card;
 
 type Props = {
-  items: Array<Object>,
+  albums: Array<Object>,
+  hasErrored: boolean,
+  isLoading: boolean,
+  searchAlbum: Function,
+  token: string,
 }
 
-const List = ({ items } : Props) => {
+const List = ({ albums, hasErrored, isLoading, searchAlbum, token } : Props) => {
+  if (hasErrored) {
+    return <p>Sorry! There was an error loading the albums. Please try again later.</p>;
+  }
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
+      <Search searchAlbum={searchAlbum} token={token} />
       <Row gutter={16}>
         {
-          items && 
-            items.map(item => (
-              <Link to={`/${item.albums.id}`} key={item.albums.id}>
+          albums && 
+            albums.map(album => (
+              <Link to={`/${album.albums.id}`} key={album.albums.id}>
                 <Col span={4} style={{ marginBottom: '20px' }}>
                   <Card
-                    cover={<img src={item.albums.images[0].url} alt={`${item.albums.name}`} />}
+                    cover={<img src={album.albums.images[0].url} alt={`${album.albums.name}`} />}
                     hoverable
                   >
                     <Meta
-                      title={item.albums.name}
-                      description={item.albums.artists[0].name}
+                      title={album.albums.name}
+                      description={album.albums.artists[0].name}
                     />
                   </Card>
                 </Col>
