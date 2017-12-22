@@ -19,7 +19,7 @@ export function searchAlbumIsLoading(state = false, action) {
 export function albums(state = [], action) {
   switch (action.type) {
     case 'SEARCH_FETCH_DATA_SUCCESS':
-      return action.items;
+      return action.albums;
     default:
       return state;
   }

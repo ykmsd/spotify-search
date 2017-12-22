@@ -14,7 +14,13 @@ type Props = {
   token: string,
 }
 
-const List = ({ albums, hasErrored, isLoading, searchAlbum, token } : Props) => {
+const List = ({
+  albums,
+  hasErrored,
+  isLoading,
+  searchAlbum,
+  token,
+} : Props) => {
   if (hasErrored) {
     return <p>Sorry! There was an error loading the albums. Please try again later.</p>;
   }
@@ -28,15 +34,15 @@ const List = ({ albums, hasErrored, isLoading, searchAlbum, token } : Props) => 
         {
           albums && 
             albums.map(album => (
-              <Link to={`/${album.albums.id}`} key={album.albums.id}>
+              <Link to={`/${album.id}`} key={album.id}>
                 <Col span={4} style={{ marginBottom: '20px' }}>
                   <Card
-                    cover={<img src={album.albums.images[0].url} alt={`${album.albums.name}`} />}
+                    cover={<img src={album.imgL_url} alt={`${album.album_name}`} />}
                     hoverable
                   >
                     <Meta
-                      title={album.albums.name}
-                      description={album.albums.artists[0].name}
+                      title={album.album_name}
+                      description={album.artist_name}
                     />
                   </Card>
                 </Col>

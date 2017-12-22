@@ -22,7 +22,7 @@ export function searchAlbumIsLoading(bool) {
 export function searchAlbumFetchDataSuccess(items) {
   return {
     type: 'SEARCH_FETCH_DATA_SUCCESS',
-    items,
+    albums: items,
   };
 }
 
@@ -48,7 +48,12 @@ export function searchAlbum(searchTerm, token) {
       .then((res) => {
         res.items = res.albums.items.map((item) => {
           return {
-            albums: item,
+            album_name: item.name,
+            artist_name: item.artists[0].name,
+            id: item.id,
+            uri: item.uri,
+            imgL_url: item.images[0].url,
+            imgS_url: item.images[1].url,
           };
         });
         return res.items;

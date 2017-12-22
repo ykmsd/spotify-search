@@ -8,19 +8,18 @@ type Props = {
 
 const Single = ({ routeProps, albums } : Props) => {
   const { albumId } = routeProps.match.params;
-  const i = albums.findIndex(album => album.albums.id === albumId);
+  const i = albums.findIndex(album => album.id === albumId);
   const album = albums[i];
-  const { albums: albumData } = album;
   return (
     <div>
       <Row gutter={16} type="flex" justify="center" style={{ marginBottom: '40px' }}>
         <Col span={6}>
-          <iframe src={`https://open.spotify.com/embed?uri=${albumData.uri}&theme=white`} width="300" height="380" frameBorder="0" allowtransparency="true" title="Spotify Player" />
+          <iframe src={`https://open.spotify.com/embed?uri=${album.uri}&theme=white`} width="300" height="380" frameBorder="0" allowtransparency="true" title="Spotify Player" />
         </Col>
         <Col span={6}>
-          <h2>{albumData.name}</h2>
-          <h3>{albumData.artists[0].name}</h3>
-          <img src={albumData.images[1].url} alt={albumData.name} />             
+          <h2>{album.album_name}</h2>
+          <h3>{album.artist_name}</h3>
+          <img src={album.imgS_url} alt={album.album_name} />
         </Col>
       </Row>
       <Button type="primary" onClick={routeProps.history.goBack}>
