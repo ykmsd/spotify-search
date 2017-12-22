@@ -26,8 +26,13 @@ export class App extends React.Component<Props> {
   componentDidMount() {
     const parsedHash = queryString.parse(window.location.hash);
     if (!parsedHash.access_token) {
-      const encodeURI = window.encodeURI(`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=http://localhost:3000/callback/&response_type=token&state=123`); 
-      window.location.href = encodeURI;
+      if(window.location.host === 'localhost:3000') {
+        const encodeURI = window.encodeURI(`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=http://localhost:3000/callback/&response_type=token&state=123`); 
+        window.location.href = encodeURI;
+      } else {
+        const encodeURI = window.encodeURI(`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=https://spotify-search-5ad2e.firebaseapp.com/callback/&response_type=token&state=123`); 
+        window.location.href = encodeURI;
+      }
     } else {
       this.props.setToken(parsedHash.access_token);
     }

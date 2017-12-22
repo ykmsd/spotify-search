@@ -14,10 +14,10 @@ const Single = ({ routeProps, albums } : Props) => {
   return (
     <div>
       <Row gutter={16} type="flex" justify="center" style={{ marginBottom: '40px' }}>
-        <Col span={6}>
+        <Col xs={24} sm={24} md={12} lg={6} xl={6}>
           <iframe src={`https://open.spotify.com/embed?uri=${album.uri}&theme=white`} width="300" height="380" frameBorder="0" allowtransparency="true" title="Spotify Player" />
         </Col>
-        <Col span={6}>
+        <Col xs={24} sm={24} md={12} lg={6} xl={6}>
           <h2>{album.album_name}</h2>
           <h3>{album.artist_name}</h3>
           <img src={album.imgS_url} alt={album.album_name} />

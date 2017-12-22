@@ -18,7 +18,7 @@ const Main = (props: Props) => {
   return (
     <div>
       <Switch>
-        <Route path="/callback" render={routeProps => (<List routeProps={routeProps} {...props} />)} exact />
+        <Route path="/callback" render={routeProps => (<List routeProps={routeProps} {...props} />)} />
         <Route path="/:albumId" render={routeProps => (<Single routeProps={routeProps} albums={props.albums} />)} />
       </Switch>
     </div>
