@@ -3,7 +3,7 @@ import {
   setToken,
   searchAlbumHasErrored,
   searchAlbumIsLoading,
-  searchAlbum,
+  albums,
 } from './reducer';
 
 describe('Reducer', () => {
@@ -18,9 +18,29 @@ describe('Reducer', () => {
     });
   });
   describe('Search', () => {
-    it('Should return true when true is passed', () => {
-      expect(searchAlbumHasErrored(true, {})).toEqual(true);
-      expect(searchAlbumIsLoading(true, {})).toEqual(true);
+    it('Should handle SEARCH_HAS_ERRORED', () => {
+      expect(searchAlbumHasErrored(undefined, {
+        type: 'SEARCH_HAS_ERRORED',
+        hasErrored: true,
+      })).toEqual(true);
+    });
+
+    it('Should handle SEARCH_IS_LOADING', () => {
+      expect(searchAlbumIsLoading(undefined, {
+        type: 'SEARCH_IS_LOADING',
+        isLoading: true,
+      })).toEqual(true);
+    });
+
+    it('Should handle SEARCH_FETCH_DATA_SUCCESS', () => {
+      expect(albums([], {
+        type: 'SEARCH_FETCH_DATA_SUCCESS',
+        albums: [{
+          artist_name: 'Taylor Swift',
+        }],
+      })).toEqual([{
+        artist_name: 'Taylor Swift',
+      }]);
     });
   });
 });

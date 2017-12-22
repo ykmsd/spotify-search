@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main callback routing 1`] = `
+<div>
+  <div>
+    
+    <form
+      className="ant-form ant-form-inline"
+      onSubmit={[Function]}
+      style={
+        Object {
+          "marginBottom": "20px",
+        }
+      }
+    >
+      <div
+        className="ant-row ant-form-item"
+        style={undefined}
+      >
+        <div
+          className="ant-form-item-control-wrapper"
+        >
+          <div
+            className="ant-form-item-control "
+          >
+            <input
+              className="ant-input search-input"
+              disabled={false}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search by Artist name"
+              style={
+                Object {
+                  "width": "200px",
+                }
+              }
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="ant-row ant-form-item"
+        style={undefined}
+      >
+        <div
+          className="ant-form-item-control-wrapper"
+        >
+          <div
+            className="ant-form-item-control "
+          >
+            <button
+              className="ant-btn search-button ant-btn-primary"
+              onClick={[Function]}
+              type="submit"
+            >
+              <span>
+                Search
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    className="ant-row"
+    style={undefined}
+  >
+    <div
+      className="ant-col-xs-12 ant-col-sm-10 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
+      style={
+        Object {
+          "marginBottom": "20px",
+        }
+      }
+    >
+      <a
+        href="/view/undefined"
+        onClick={[Function]}
+      >
+        <div
+          className="ant-card ant-card-bordered ant-card-hoverable"
+        >
+          <div
+            className="ant-card-cover"
+          >
+            <img
+              alt="undefined"
+              src={undefined}
+              style={
+                Object {
+                  "maxHeight": "280px",
+                }
+              }
+            />
+          </div>
+          <div
+            className="ant-card-body"
+            style={undefined}
+          >
+            <div>
+              <div
+                className="ant-card-meta"
+              />
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="ant-col-xs-12 ant-col-sm-10 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
+      style={
+        Object {
+          "marginBottom": "20px",
+        }
+      }
+    >
+      <a
+        href="/view/undefined"
+        onClick={[Function]}
+      >
+        <div
+          className="ant-card ant-card-bordered ant-card-hoverable"
+        >
+          <div
+            className="ant-card-cover"
+          >
+            <img
+              alt="undefined"
+              src={undefined}
+              style={
+                Object {
+                  "maxHeight": "280px",
+                }
+              }
+            />
+          </div>
+          <div
+            className="ant-card-body"
+            style={undefined}
+          >
+            <div>
+              <div
+                className="ant-card-meta"
+              />
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Main no match routing 1`] = `
+<div>
+  <p>
+    Something went wrong. Please try it again later.
+  </p>
+</div>
+`;
+
+exports[`Main renders correctly 1`] = `
+<div>
+  <div>
+    <p>
+      You need to login to your Spotify account to use this app.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Main view albumId routing 1`] = `
+<div>
+  <div
+    className="ant-row-flex ant-row-flex-center"
+    style={
+      Object {
+        "marginBottom": "40px",
+        "marginLeft": -8,
+        "marginRight": -8,
+      }
+    }
+  >
+    <div
+      className="ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6 ant-col-xl-6"
+      style={
+        Object {
+          "paddingLeft": 8,
+          "paddingRight": 8,
+        }
+      }
+    >
+      <iframe
+        allowtransparency="true"
+        frameBorder="0"
+        height="380"
+        src="https://open.spotify.com/embed?uri=undefined&theme=white"
+        title="Spotify Player"
+        width="300"
+      />
+    </div>
+    <div
+      className="ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6 ant-col-xl-6"
+      style={
+        Object {
+          "paddingLeft": 8,
+          "paddingRight": 8,
+        }
+      }
+    >
+      <h2 />
+      <h3 />
+      <img
+        alt={undefined}
+        src={undefined}
+      />
+    </div>
+  </div>
+  <button
+    className="ant-btn ant-btn-primary"
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="anticon anticon-left"
+    />
+    <span>
+      Go back
+    </span>
+  </button>
+</div>
+`;
