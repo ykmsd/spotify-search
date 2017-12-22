@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { Row, Col, Button, Icon } from 'antd';
 

@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { Form, Input, Button } from 'antd';
 
@@ -8,11 +9,17 @@ type Props = {
   token: string,
 };
 
-class Search extends React.Component<Props> {
+type State = {
+  searchTerm: string,
+  error: string,
+};
+
+class Search extends React.Component<Props, State> {
   constructor() {
     super();
     this.state = {
       searchTerm: '',
+      error: '',
     };
   }
   handleSearchChange = (e) => {
@@ -22,15 +29,20 @@ class Search extends React.Component<Props> {
   }
   handleSearchClick = (e) => {
     e.preventDefault();
-    this.props.searchAlbum(this.state.searchTerm, this.props.token);
-    this.setState({
-      searchTerm: '',
-    });
+    if (!this.state.searchTerm) {
+      this.setState(() => ({ error: 'Please provide a search term!' }));
+    } else {
+      this.props.searchAlbum(this.state.searchTerm, this.props.token);
+      this.setState({
+        searchTerm: '',
+        error: '',
+      });
+    }
   }
   render() {
-
     return (
       <div>
+        {this.state.error && <p>{this.state.error} </p>}
         <Form onSubmit={this.handleSearchClick} layout="inline" style={{ marginBottom: '20px'}}>
           <FormItem>
             <Input
