@@ -30,12 +30,12 @@ const List = ({
   return (
     <div>
       <Search searchAlbum={searchAlbum} token={token} />
-      <Row gutter={{ xs: 8, sm: 8, md: 16, lg: 16 }}>
+      <Row gutter={{ xs: 8, sm: 16, md: 16, lg: 16 }}>
         {
           albums &&
             albums.map(album => (
               <Col xs={12} sm={10} md={8} lg={6} xl={4} style={{ marginBottom: '20px' }} key={album.id}>
-                <Link to={`/${album.id}`}>
+                <Link to={`/view/${album.id}`}>
                   <Card
                     cover={<img src={album.imgL_url} alt={`${album.album_name}`} style={{ maxHeight: '280px' }} />}
                     hoverable

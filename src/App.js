@@ -20,6 +20,9 @@ type Props = {
   searchAlbum: Function,
   token: string,
   items: Array<Object>,
+  albums: Array<Object>,
+  hasErrored: boolean,
+  isLoading: boolean,
 };
 
 export class App extends React.Component<Props> {

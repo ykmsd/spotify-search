@@ -4,6 +4,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Single from '../Single/Single';
 import List from '../List/List';
+import Init from '../Init/Init';
+import NoMatch from '../NoMatch/NoMatch';
 
 type Props = {
   searchAlbum: Function,
@@ -18,8 +20,10 @@ const Main = (props: Props) => {
   return (
     <div>
       <Switch>
+        <Route path="/" component={Init} exact />
         <Route path="/callback" render={routeProps => (<List routeProps={routeProps} {...props} />)} />
-        <Route path="/:albumId" render={routeProps => (<Single routeProps={routeProps} albums={props.albums} />)} />
+        <Route path="/view/:albumId" render={routeProps => (<Single routeProps={routeProps} albums={props.albums} />)} />
+        <Route component={NoMatch} />
       </Switch>
     </div>
   );
