@@ -49,6 +49,7 @@ export function searchAlbum(searchTerm, token) {
         });
         
         dispatch(searchAlbumFetchDataSuccess(res.items));
-      });
+      })
+      .catch(() => dispatch(searchAlbumHasErroed(true)));
   };
 }

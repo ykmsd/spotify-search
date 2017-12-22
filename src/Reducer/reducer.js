@@ -1,14 +1,14 @@
-// import albumData from '../data';
-
-export const initialState = {};
-
-const reducer = (state = initialState, action) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_TOKEN':
       return {
         ...state,
         token: action.token,
       };
+    case 'SEARCH_HAS_ERRORED':
+      return action.hasErroed;
+    case 'searchAlbumIsLoading':
+      return action.isLoading;
     case 'SEARCH_FETCH_DATA_SUCCESS':
       return {
         ...state,

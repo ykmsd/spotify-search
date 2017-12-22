@@ -22,7 +22,7 @@ type Props = {
   items: Array<Object>,
 };
 
-class App extends React.Component<Props> {
+export class App extends React.Component<Props> {
   componentDidMount() {
     const parsedHash = queryString.parse(window.location.hash);
     if (!parsedHash.access_token) {

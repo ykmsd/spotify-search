@@ -2,8 +2,8 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import { Link } from 'react-router-dom';
-const { Meta } = Card;
 
+const { Meta } = Card;
 
 type Props = {
   items: Array<Object>,
