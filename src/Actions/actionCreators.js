@@ -20,7 +20,6 @@ export function searchAlbumIsLoading(bool) {
 }
 
 export function searchAlbumFetchDataSuccess(items) {
-  console.log(items);
   return {
     type: 'SEARCH_FETCH_DATA_SUCCESS',
     items,
@@ -28,7 +27,6 @@ export function searchAlbumFetchDataSuccess(items) {
 }
 
 export function searchAlbum(searchTerm, token) {
-  console.log(searchTerm, token);
   return (dispatch) => {
     const FETCH_URL = `https://api.spotify.com/v1/search?q=artist:${searchTerm}&type=album`;
 
@@ -44,7 +42,6 @@ export function searchAlbum(searchTerm, token) {
     fetch(FETCH_URL, myOptions)
       .then(res => res.json())
       .then((res) => {
-        console.log(res);
         res.items = res.albums.items.map((item) => {
           return {
             albums: item,

@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Row, Col, Card } from 'antd';
-
+import { Link } from 'react-router-dom';
 const { Meta } = Card;
 
 
@@ -15,9 +14,10 @@ const List = ({ items } : Props) => {
     <div>
       <Row gutter={16}>
         {
-          items.map(item => (
-            <Link to={`/view/${item.albums.id}`} key={item.albums.id}>
-              <Col span={4} style={{ marginBottom: '20px' }}>
+          items && 
+            items.map(item => (
+              <Link to={`/${item.albums.id}`} key={item.albums.id}>
+                <Col span={4} style={{ marginBottom: '20px' }}>
                   <Card
                     cover={<img src={item.albums.images[0].url} alt={`${item.albums.name}`} />}
                     hoverable
@@ -27,8 +27,8 @@ const List = ({ items } : Props) => {
                       description={item.albums.artists[0].name}
                     />
                   </Card>
-              </Col>
-            </Link>
+                </Col>
+              </Link>
             ))
         }
       </Row>

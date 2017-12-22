@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import 'antd/dist/antd.css';
 import queryString from 'query-string';
 import Main from '../src/components/Main/Main';
@@ -32,6 +33,7 @@ class App extends React.Component<Props> {
     }
   }
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <Header {...this.props} />
@@ -52,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

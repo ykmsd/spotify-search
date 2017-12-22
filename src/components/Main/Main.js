@@ -1,9 +1,9 @@
 // @flow
 
 import React from 'react';
-import Search from '../Search/Search';
+import { Route, Switch } from 'react-router-dom';
+import Single from '../Single/Single';
 import List from '../List/List';
-
 
 type Props = {
   searchAlbum: Function,
@@ -15,10 +15,11 @@ type Props = {
 const Main = (props: Props) => {
   return (
     <div>
-      <Search {...props} />
-      {
-        props.items && <List items={props.items} />
-      }
+      <Switch>
+        <Route path="/" exact />
+        <Route path="/callback" render={routeProps => (<List routeProps={routeProps} {...props} />)} exact />
+        <Route path="/:albumId" render={routeProps => (<Single routeProps={routeProps} items={props.items} />)} />
+      </Switch>
     </div>
   );
 };
