@@ -43,7 +43,7 @@ export class App extends React.Component<Props> {
   render() {
     return (
       <div className="App">
-        <Header {...this.props} />
+        <Header />
         <Main {...this.props} />
       </div>
     );
